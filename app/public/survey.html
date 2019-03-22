@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FriendFinder</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Survey Questions</h1>
+
+    <h3><strong>User Creation(required)</strong></h3>
+    <h3>Name</h3>
+    <input type="text" id="name" class="form-control" required>
+
+    <h3>Link to Image</h3>
+    <input type="text" id="photo" class="form-control" required>
+
+    <hr>
+
+
+    <h4><strong>1.</strong>You like ham.</h4>
+    <select class="chosen-select" id="question1">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+
+    <hr>
+
+    <h4><strong>2.</strong>Most days, you like to exercise.</h4>
+    <select class="chosen-select" id="question2">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+    <hr>
+
+
+    <h4><strong>3.</strong>Studying is enjoyable for you.</h4>
+    <select class="chosen-select" id="question3">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+
+    <hr>
+    <h4><strong>4.</strong>You learn easier by doing.</h4>
+    <select class="chosen-select" id="question4">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+    <hr>
+    <h4><strong>5.</strong>Dogs are your favorite pet.</h4>
+    <select class="chosen-select" id="question5">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+    <hr>
+    <h4><strong>6.</strong>Ham.</h4>
+    <select class="chosen-select" id="question6">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+
+    <hr>
+    <h4><strong>7.</strong>Politics are annoying to you.</h4>
+    <select class="chosen-select" id="question7">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+    <hr>
+    <h4><strong>8.</strong>It's hard for you to brainstorm things by yourself.</h4>
+    <select class="chosen-select" id="question8">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+    <hr>
+    <h4><strong>9.</strong>Helping people is really important to you.</h4>
+    <select class="chosen-select" id="question9">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+    <hr>
+    <h4><strong>10.</strong>Pickle.</h4>
+    <select class="chosen-select" id="question10">
+      <option value=""></option>
+      <option value="1">1 (Highly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Highly Agree)</option>
+    </select>
+
+    <br>
+    <br>
+
+    <button type="submit" class="btn btn-primary btn-lg" id="submit">
+     Submit</button>
+
+    <hr>
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Modal to show resulting matches -->
+  <div id="match-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title"><strong>Best Match</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="match-user-name"></h2>
+          <img id="match-user-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Pickle.jpg/1200px-Pickle.jpg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    //used bootcamps question selection dropdown config code
+    var config = {
+      ".chosen-select": {},
+      ".chosen-select-deselect": {
+        allow_single_deselect: true
+      },
+      ".chosen-select-no-single": {
+        disable_search_threshold: 10
+      },
+      ".chosen-select-no-results": {
+        no_results_text: "Oops, nothing found!"
+      },
+      ".chosen-select-width": {
+        width: "95%"
+      }
+    };
+
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+
+    // Capture the form inputs
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function() {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+
+        //bootcamps code to make sure input/answers given are okay(inspect element and such)
+        $(".chosen-select").each(function() {
+
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+
+      //validateForm() Checks if all the questions are filled
+      if (validateForm()) {
+
+        //Making an object for the post request to send
+        var newUser = {
+          name:$("#name").val(),
+          image:$("#photo").val(),
+          answers:[
+            $("#question1").val(),
+            $("#question2").val(),
+            $("#question3").val(),
+            $("#question4").val(),
+            $("#question5").val(),
+            $("#question6").val(),
+            $("#question7").val(),
+            $("#question8").val(),
+            $("#question9").val(),
+            $("#question10").val()
+          ]
+        };
+
+        //post request to the server with the new user(sends back the result through the callback)
+        $.post("/api/friends", newUser, function(result) {
+          console.log(result);
+          //use the result sent back in the callback to display the matching user
+          $("#match-user-name").text(result.name);
+          $("#match-user-image").attr("src", result.image);
+          $("#match-modal").modal("toggle");
+
+        });
+
+      } else {// tell them they are a goober
+        alert("Please answer all questions before submitting!");
+      }
+    });
+  </script>
+
+</body>
+
+</html>
